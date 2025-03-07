@@ -28,7 +28,7 @@
 /**
  * Marlin release version identifier
  */
-//#define SHORT_BUILD_VERSION "2.1.2.5"
+#define SHORT_BUILD_VERSION "2.1.2.5" //ECP
 
 /**
  * Verbose version identifier which should contain a reference to the location
@@ -41,7 +41,7 @@
  * here we define this default string as the date where the latest release
  * version was tagged.
  */
-//#define STRING_DISTRIBUTION_DATE "2024-11-18"
+#define STRING_DISTRIBUTION_DATE "2025-03-08" //ECP
 
 /**
  * The protocol for communication to the host. Protocol indicates communication
@@ -66,13 +66,13 @@
 /**
  * Default generic printer UUID.
  */
-//#define DEFAULT_MACHINE_UUID "cede2a2f-41a2-4748-9b12-c55c62f367ff"
+#define DEFAULT_MACHINE_UUID "ec897f17-168b-4bf0-96c0-9381fadf2ec2" //ECP
 
 /**
  * The WEBSITE_URL is the location where users can get more information such as
  * documentation about a specific Marlin release.
  */
-//#define WEBSITE_URL "marlinfw.org"
+#define WEBSITE_URL "https://github.com/erickCantu/Marlin_Sovol_SV01/tree/2.1.2.5_Sovol_SV01_SKR_1.4" //ECP
 
 /**
  * Set the vendor info the serial USB interface, if changeable.

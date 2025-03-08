@@ -968,7 +968,7 @@
  * Z Steppers Auto-Alignment
  * Add the G34 command to align multiple Z steppers using a bed probe.
  */
-//#define Z_STEPPER_AUTO_ALIGN
+#define Z_STEPPER_AUTO_ALIGN  //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43
 #if ENABLED(Z_STEPPER_AUTO_ALIGN)
   /**
    * Define probe X and Y positions for Z1, Z2 [, Z3 [, Z4]]
@@ -976,8 +976,9 @@
    * If not defined, probe limits will be used.
    * Override with 'M422 S<index> X<pos> Y<pos>'.
    */
-  //#define Z_STEPPER_ALIGN_XY { {  10, 190 }, { 100,  10 }, { 190, 190 } }
-
+  #define Z_STEPPER_ALIGN_XY { {  35, 125 }, {295 ,  125 }} //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43
+                                                            // El Razonamiento para x es: 2 mm adentro de la mesa (35) y 37 mm (295) addentro de la mesa en el otro lado. 
+                                                            // Requiere evaluacion.
   /**
    * Orientation for the automatically-calculated probe positions.
    * Override Z stepper align points with 'M422 S<index> X<pos> Y<pos>'
@@ -998,7 +999,7 @@
    *               | 1   2 | 2   3 | 3   4 | 4   1 |
    */
   #ifndef Z_STEPPER_ALIGN_XY
-    //#define Z_STEPPERS_ORIENTATION 0
+    #define Z_STEPPERS_ORIENTATION 0  //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43
   #endif
 
   /**
@@ -2774,7 +2775,7 @@
 
   #if AXIS_IS_TMC_CONFIG(Z)
     #define Z_CURRENT       800
-    #define Z_CURRENT_HOME  Z_CURRENT
+    #define Z_CURRENT_HOME  400 //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43;  Z_CURRENT 
     #define Z_MICROSTEPS     16
     #define Z_RSENSE          0.11
     #define Z_CHAIN_POS      -1

@@ -169,7 +169,7 @@
 #define Z_DRIVER_TYPE  TMC2209 //ECP
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
-//#define Z2_DRIVER_TYPE A4988
+#define Z2_DRIVER_TYPE TMC2209 //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
 //#define I_DRIVER_TYPE  A4988
@@ -1741,7 +1741,7 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 290 // ECP (Based in Sovol 2.1.5 conf.) 
+#define X_BED_SIZE 300 // ECP (Updated based on https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52)
 #define Y_BED_SIZE 255 // ECP (Based in Sovol 2.1.5 conf.) 
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.

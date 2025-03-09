@@ -3174,9 +3174,9 @@
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  60  // ECP per https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52
+    #define X_STALL_SENSITIVITY   75 // ECP per https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52 / Values after testing
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  60 // ECP per https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52
+    #define Y_STALL_SENSITIVITY  90 // ECP per https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52 / Values after testing
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
     //#define Z_STALL_SENSITIVITY  8
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY

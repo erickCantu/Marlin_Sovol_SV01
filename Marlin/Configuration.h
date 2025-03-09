@@ -554,7 +554,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 5
+#define TEMP_SENSOR_0 1 // ECP Change back to original hotend. 
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -1687,9 +1687,9 @@
 // @section motion
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR false
-#define INVERT_Y_DIR false // ECP (Based in Sovol 2.1.5 conf.) 
-#define INVERT_Z_DIR true // ECP (Based in Sovol 2.1.5 conf.) 
+#define INVERT_X_DIR true  // ECP after the first boot the drives are flip in the SKR 1.4 board. It is the opposite to the default.
+#define INVERT_Y_DIR true // ECP after the first boot the drives are flip in the SKR 1.4 board. It is the opposite to the default.
+#define INVERT_Z_DIR false // ECP after the first boot the drives are flip in the SKR 1.4 board. It is the opposite to the default.
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
 //#define INVERT_K_DIR false
@@ -1700,7 +1700,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR true  // ECP (Based in Sovol 2.1.5 conf.) 
+#define INVERT_E0_DIR true  //ECP  It is pressumed that is flipped too as with the XYZ steppers.
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false

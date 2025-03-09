@@ -1314,10 +1314,10 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN  //ECP per https://github.com/bigtreetech/BIGTREETECH-SKR-V1.3/issues/207#issuecomment-828245110
 
 // Force the use of the probe for Z-axis homing
-//#define USE_PROBE_FOR_Z_HOMING
+#define USE_PROBE_FOR_Z_HOMING  //ECP per https://github.com/bigtreetech/BIGTREETECH-SKR-V1.3/issues/207#issuecomment-828245110
 
 /**
  * Z_MIN_PROBE_PIN
@@ -1332,7 +1332,7 @@
  *    - Normally-closed (NC) also connect to GND.
  *    - Normally-open (NO) also connect to 5V.
  */
-//#define Z_MIN_PROBE_PIN -1
+#define Z_MIN_PROBE_PIN P0_10  //ECP per https://github.com/bigtreetech/BIGTREETECH-SKR-V1.3/issues/207#issuecomment-828245110
 
 /**
  * Probe Type

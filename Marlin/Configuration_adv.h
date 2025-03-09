@@ -3209,7 +3209,7 @@
   /**
    * Step on both rising and falling edge signals (as with a square wave).
    */
-  //#define SQUARE_WAVE_STEPPING
+  #define SQUARE_WAVE_STEPPING  // ECP Try per https://github.com/MarlinFirmware/Marlin/issues/15926#issuecomment-565697269
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.

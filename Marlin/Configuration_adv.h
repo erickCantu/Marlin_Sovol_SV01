@@ -976,7 +976,7 @@
    * If not defined, probe limits will be used.
    * Override with 'M422 S<index> X<pos> Y<pos>'.
    */
-  #define Z_STEPPER_ALIGN_XY { {35, 125 }, {265 ,  125 }} //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43
+  #define Z_STEPPER_ALIGN_XY { {45, 125 }, {245,  125 }} //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43
                                                             // El Razonamiento para x es: 2 mm adentro de la mesa (35) y 37 mm (265) addentro de la mesa en el otro lado. 
                                                             // Requiere evaluacion. No compilo la con 295, se tuvo que cambiar a 265. Parece que usa la posicion del 3DTouch
   /**

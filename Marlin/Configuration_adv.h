@@ -2113,7 +2113,7 @@
  *
  * See https://marlinfw.org/docs/features/lin_advance.html for full instructions.
  */
-//#define LIN_ADVANCE  // ECP per https://www.youtube.com/watch?v=V-bKfYF3I-o //Try to see if the extruder works
+#define LIN_ADVANCE  // ECP per https://www.youtube.com/watch?v=V-bKfYF3I-o 
 #if ENABLED(LIN_ADVANCE)
   #if ENABLED(DISTINCT_E_FACTORS)
     #define ADVANCE_K { 0.22 }    // (mm) Compression length per 1mm/s extruder speed, per extruder
@@ -2734,7 +2734,7 @@
   #define INTERPOLATE      true
 
   #if AXIS_IS_TMC_CONFIG(X)
-    #define X_CURRENT       800        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT       600        // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for homing. (Typically lower than *_CURRENT.)
     #define X_MICROSTEPS     16        // 0..256
     #define X_RSENSE          0.11     // Multiplied x1000 for TMC26X
@@ -2754,7 +2754,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Y)
-    #define Y_CURRENT       800
+    #define Y_CURRENT       600
     #define Y_CURRENT_HOME  Y_CURRENT
     #define Y_MICROSTEPS     16
     #define Y_RSENSE          0.11
@@ -2774,8 +2774,8 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Z)
-    #define Z_CURRENT       800
-    #define Z_CURRENT_HOME  400 //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43;  Z_CURRENT 
+    #define Z_CURRENT       600
+    #define Z_CURRENT_HOME  Z_CURRENT  //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43;  Z_CURRENT 
     #define Z_MICROSTEPS     16
     #define Z_RSENSE          0.11
     #define Z_CHAIN_POS      -1

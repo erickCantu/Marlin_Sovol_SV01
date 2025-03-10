@@ -1528,7 +1528,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -33.5, -10, -1.425 }  //ECP (Based in Sovol 2.1.5 conf., but adjusted) / Value after calibraton
+#define NOZZLE_TO_PROBE_OFFSET { -33.5, -10, -1.598 }  //ECP (Based in Sovol 2.1.5 conf., but adjusted) / Value after calibraton
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.

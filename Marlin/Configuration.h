@@ -1199,7 +1199,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 } //ECP 
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 418.6 } //ECP 
 /** ECP The extruder was exchange for a TriangleLab Titan with TL42BYGH23 Motor. 
 * The motor is 1.8 deg, it has 200 Motor Steps. Per E3D documentation the calculations is as follow:
 * E-Steps-per-mm = (Motor Steps * Micro-stepping * Gear Ratio) / (Hobb Diameter * Pi). 
@@ -1207,6 +1207,8 @@
 * Assuming microstepping is 16; needs review
 * E-Steps-per-mm = (200 * 16 * 3) / (7.3 * Pi) = 418.5993 ~ 415 for safety. 
 * The same as the Sovol Motor, except that Sovol is 40 mm instead of 23. So it works with default setup.
+* After reviewing the esteps it was showed that 418.6 seems to be the correct value. Maybe overextruction would happen
+* needs validation in printing. See https://teachingtechyt.github.io/calibration.html#esteps
 */
 
 
@@ -1530,7 +1532,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 0 //ECP There are no clips in the bed. So it can go all the way out.
+#define PROBING_MARGIN 10 //ECP Makes no sense to test at the very end. Instead 10 mm inside.
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (133*60) // ECP Keept based values, sovol values are 50*60. Need review.

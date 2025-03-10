@@ -2693,7 +2693,7 @@
   //#define PARK_HEAD_ON_PAUSE                    // Park the nozzle during pause and filament change.
   //#define HOME_BEFORE_FILAMENT_CHANGE           // If needed, home before parking for filament change
 
-  //#define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
+  #define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu. // ECP add menu option to load/unload
   //#define FILAMENT_UNLOAD_ALL_EXTRUDERS         // Allow M702 to unload all extruders above a minimum target temp (as set by M302)
 #endif
 
@@ -2734,7 +2734,7 @@
   #define INTERPOLATE      true
 
   #if AXIS_IS_TMC_CONFIG(X)
-    #define X_CURRENT       800        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT       600        // (mA) RMS current. Multiply by 1.414 for peak current. // ECP reduce heat
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for homing. (Typically lower than *_CURRENT.)
     #define X_MICROSTEPS     16        // 0..256
     #define X_RSENSE          0.11     // Multiplied x1000 for TMC26X
@@ -2754,7 +2754,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Y)
-    #define Y_CURRENT       800
+    #define Y_CURRENT       600  // ECP reduce heat
     #define Y_CURRENT_HOME  Y_CURRENT
     #define Y_MICROSTEPS     16
     #define Y_RSENSE          0.11
@@ -2774,7 +2774,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Z)
-    #define Z_CURRENT       800
+    #define Z_CURRENT       600  // ECP reduce heat
     #define Z_CURRENT_HOME  400 //ECP per https://www.youtube.com/watch?v=3jAFQdTk8iw&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=43;  Z_CURRENT 
     #define Z_MICROSTEPS     16
     #define Z_RSENSE          0.11
@@ -3065,7 +3065,7 @@
    * Define your own with:
    * { <off_time[1..15]>, <hysteresis_end[-3..12]>, hysteresis_start[1..8] }
    */
-  #define CHOPPER_TIMING CHOPPER_DEFAULT_12V        // All axes (override below)
+  #define CHOPPER_TIMING CHOPPER_DEFAULT_24V        // All axes (override below)  //ECP per https://www.youtube.com/watch?v=0PEGNj5m90o
   //#define CHOPPER_TIMING_X  CHOPPER_TIMING        // For X Axes (override below)
   //#define CHOPPER_TIMING_X2 CHOPPER_TIMING_X
   //#define CHOPPER_TIMING_Y  CHOPPER_TIMING        // For Y Axes (override below)
@@ -3174,9 +3174,9 @@
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  60  // ECP per https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52
+    #define X_STALL_SENSITIVITY  125  // ECP per https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52 // Values after testing
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  60 // ECP per https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52
+    #define Y_STALL_SENSITIVITY  110 // ECP per https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52 // Values after testing
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
     //#define Z_STALL_SENSITIVITY  8
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY
@@ -3209,7 +3209,7 @@
   /**
    * Step on both rising and falling edge signals (as with a square wave).
    */
-  //#define SQUARE_WAVE_STEPPING
+  #define SQUARE_WAVE_STEPPING // ECP Try per https://github.com/MarlinFirmware/Marlin/issues/15926#issuecomment-565697269
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.

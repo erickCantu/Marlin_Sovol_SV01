@@ -1743,8 +1743,8 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 300 // ECP (Updated based on https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52)
-#define Y_BED_SIZE 255 // ECP (Based in Sovol 2.1.5 conf.) 
+#define X_BED_SIZE 290 // ECP (Updated based on https://www.youtube.com/watch?v=7WYFlDbW6iQ&list=PLe7L6YFPoKLfXi71zcbaDrJ_6dPV9yJs-&index=52) // Not updated yet. Original vaue in use.
+#define Y_BED_SIZE 250 // ECP (Based in Sovol 2.1.5 conf.) This value is wrong. It is more like 250
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0

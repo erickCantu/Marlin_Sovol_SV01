@@ -1700,7 +1700,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR true  //ECP  It is pressumed that is flipped too as with the XYZ steppers.
+#define INVERT_E0_DIR false  //ECP  The Presumption was wrong. It is not flipped. Correct value is false.
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false

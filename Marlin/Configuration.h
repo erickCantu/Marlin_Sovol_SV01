@@ -1528,7 +1528,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -33.5, -10, -1.598 }  //ECP (Based in Sovol 2.1.5 conf., but adjusted) / Value after calibraton
+#define NOZZLE_TO_PROBE_OFFSET { -33.5, -10, 0 }  //ECP (Based in Sovol 2.1.5 conf., but adjusted) / Value after calibraton
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1935,7 +1935,7 @@
  * Commands to execute at the end of G29 probing.
  * Useful to retract or move the Z probe out of the way.
  */
-#define Z_PROBE_END_SCRIPT "G1 Z30 F12000\nG1 X_CENTER Y_CENTER F3000" // Based on original script for the induction sensor; X145 Y125.
+#define Z_PROBE_END_SCRIPT "G1 Z30 F12000\nG1 X183.50 Y137.00 F3000" //ECP Based on original script for the induction sensor; X145 Y125.  // ECP it was not working with X_Center it requires point numbers
 
 /**
  * Normally G28 leaves leveling disabled on completion. Enable one of

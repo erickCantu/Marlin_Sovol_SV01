@@ -1528,11 +1528,11 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -33.5, -10, 0 }  //ECP (Based in Sovol 2.1.5 conf., but adjusted) / Value after calibraton
+#define NOZZLE_TO_PROBE_OFFSET { -33.5, -10.0, 0 }  //ECP Needs to be 0. Calibrate Z-Offset after firmware update
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10 //ECP Makes no sense to test at the very end. Instead 10 mm inside.
+#define PROBING_MARGIN 10 //ECP Testing at the end of the bed did not worked. Review back to 10 mm. To evaluate if it does.
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (133*60) // ECP Keept based values, sovol values are 50*60. Need review.
@@ -1925,11 +1925,12 @@
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
 #if ENABLED(SV01_3DTOUCH) // ECP (Based in Sovol 2.1.5 conf.) 
-  #define AUTO_BED_LEVELING_BILINEAR
+  //#define AUTO_BED_LEVELING_BILINEAR  // ECP USe UBL
+  #define AUTO_BED_LEVELING_UBL // ECP Try a new algorithm Bilinear is failing. 
 #else
   #define MESH_BED_LEVELING
 #endif
-//#define AUTO_BED_LEVELING_UBL
+//ECP move Inside the if.
 
 /**
  * Commands to execute at the end of G29 probing.
@@ -1942,7 +1943,7 @@
  * these options to restore the prior leveling state or to always enable
  * leveling immediately after G28.
  */
-//#define RESTORE_LEVELING_AFTER_G28
+#define RESTORE_LEVELING_AFTER_G28  //ECP Required by UBL
 //#define ENABLE_LEVELING_AFTER_G28
 
 /**
@@ -1950,7 +1951,7 @@
  */
 #define PREHEAT_BEFORE_LEVELING // ECP for convenience 
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
-  #define LEVELING_NOZZLE_TEMP 150   // (°C) Only applies to E0 at this time // ECP for convenience 
+  #define LEVELING_NOZZLE_TEMP 130   // (°C) Only applies to E0 at this time // ECP for convenience 
   #define LEVELING_BED_TEMP     60  // ECP for convenience 
 #endif
 
@@ -1968,7 +1969,7 @@
  * Turn on with the command 'M111 S32'.
  * NOTE: Requires a lot of flash!
  */
-//#define DEBUG_LEVELING_FEATURE
+#define DEBUG_LEVELING_FEATURE
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL, PROBE_MANUALLY)
   // Set a height for the start of manual adjustment
@@ -1997,15 +1998,15 @@
   /**
    * Enable the G26 Mesh Validation Pattern tool.
    */
-  //#define G26_MESH_VALIDATION
+  #define G26_MESH_VALIDATION // ECP update data for UBL
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for G26.
-    #define MESH_TEST_HOTEND_TEMP  205    // (°C) Default nozzle temperature for G26.
+    #define MESH_TEST_HOTEND_TEMP  220    // (°C) Default nozzle temperature for G26.  // ECP Based on experience in cura.
     #define MESH_TEST_BED_TEMP      60    // (°C) Default bed temperature for G26.
-    #define G26_XY_FEEDRATE         20    // (mm/s) Feedrate for G26 XY moves.
-    #define G26_XY_FEEDRATE_TRAVEL 100    // (mm/s) Feedrate for G26 XY travel moves.
-    #define G26_RETRACT_MULTIPLIER   1.0  // G26 Q (retraction) used by default between mesh test elements.
+    #define G26_XY_FEEDRATE         60    // (mm/s) Feedrate for G26 XY moves. //ECP Based on experience in cura.
+    #define G26_XY_FEEDRATE_TRAVEL 120    // (mm/s) Feedrate for G26 XY travel moves.
+    #define G26_RETRACT_MULTIPLIER   0.98  // G26 Q (retraction) used by default between mesh test elements. //ECP based in Orcslicer. Needs validation
   #endif
 
 #endif
@@ -2043,10 +2044,10 @@
   //========================= Unified Bed Leveling ============================
   //===========================================================================
 
-  //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
+  #define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh //ECP required by UBL
 
-  #define MESH_INSET 1              // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 10      // Don't use more than 15 points per axis, implementation limited.
+  #define MESH_INSET 5              // Set Mesh bounds as an inset region of the bed  // To extend as much as possble the bed. Remember that the printing available area is 290 x 250 mm. 
+  #define GRID_MAX_POINTS_X 15      // Don't use more than 15 points per axis, implementation limited. //ECP Increase the point numbers for more details. See if it helps.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   //#define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
@@ -2057,7 +2058,7 @@
   //#define UBL_Z_RAISE_WHEN_OFF_MESH 2.5 // When the nozzle is off the mesh, this value is used
                                           // as the Z-Height correction value.
 
-  //#define UBL_MESH_WIZARD         // Run several commands in a row to get a complete mesh
+  #define UBL_MESH_WIZARD         // Run several commands in a row to get a complete mesh
 
 #elif ENABLED(MESH_BED_LEVELING)
 

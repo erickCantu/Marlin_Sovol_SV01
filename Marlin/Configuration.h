@@ -2046,7 +2046,7 @@
 
   #define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh //ECP required by UBL
 
-  #define MESH_INSET 5              // Set Mesh bounds as an inset region of the bed  // To extend as much as possble the bed. Remember that the printing available area is 290 x 250 mm. 
+  #define MESH_INSET 10              // Set Mesh bounds as an inset region of the bed  // To extend as much as possble the bed. Remember that the printing available area is 290 x 250 mm. //This may be the error base.
   #define GRID_MAX_POINTS_X 15      // Don't use more than 15 points per axis, implementation limited. //ECP Increase the point numbers for more details. See if it helps.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 

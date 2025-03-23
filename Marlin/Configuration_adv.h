@@ -2187,7 +2187,7 @@
   #define MESH_MIN_X 5 //ECP original value: MESH_INSET
   #define MESH_MIN_Y 5 //ECP original value: MESH_INSET
   #define MESH_MAX_X X_BED_SIZE - (MESH_INSET)
-  #define MESH_MAX_Y Y_BED_SIZE - 5 //ECP original value: Y_BED_SIZE - (MESH_INSET)
+  #define MESH_MAX_Y Y_BED_SIZE - 10 //ECP original value: Y_BED_SIZE - (MESH_INSET)
 #endif
 
 #if BOTH(AUTO_BED_LEVELING_UBL, EEPROM_SETTINGS)

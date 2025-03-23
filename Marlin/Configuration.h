@@ -1532,7 +1532,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10 //ECP Testing at the end of the bed did not worked. Review back to 10 mm. To evaluate if it does.
+#define PROBING_MARGIN 1 //ECP Testing at the end of the bed did not worked. Review back to 10 mm. To evaluate if it does.
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (133*60) // ECP Keept based values, sovol values are 50*60. Need review.
@@ -1752,7 +1752,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 300 // ECP (Based in Sovol 2.1.5 conf.) 
+#define Z_MAX_POS 180 // ECP (Based in Sovol 2.1.5 conf.) //ECP Based in current BLTouch Cable restriction. Change to 300 in the future.
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -2046,11 +2046,12 @@
 
   #define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh //ECP required by UBL
 
-  #define MESH_INSET 10              // Set Mesh bounds as an inset region of the bed  // To extend as much as possble the bed. Remember that the printing available area is 290 x 250 mm. //This may be the error base.
+  #define MESH_INSET 34              // Set Mesh bounds as an inset region of the bed  // To extend as much as possble the bed. Remember that the printing available area is 290 x 250 mm. // This may be the error base.
+                                     // Considering that the maximum position printing area is 290, as X0 is at 10mm in the bed, maximum position of 3Dtouch is at -24 mm. Now the whole mesh should work.   
   #define GRID_MAX_POINTS_X 15      // Don't use more than 15 points per axis, implementation limited. //ECP Increase the point numbers for more details. See if it helps.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
-  //#define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
+  #define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
 
   #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
   #define UBL_SAVE_ACTIVE_ON_M500   // Save the currently active mesh in the current slot on M500
